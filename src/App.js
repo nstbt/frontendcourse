@@ -14,16 +14,31 @@ function App() {
     getData().then((res) => setTodos(res));
   },[])
 
-  const getAllTodos = () => {
+  const getAllTodos = (e) => {
+    const button = e.target;
+    styleFilters(button);
     getData().then((res) => setTodos(res));
   }
 
-  const getActiveTodos = () => {
+  const getActiveTodos = (e) => {
+    const button = e.target;
+    styleFilters(button);
+    
     getData().then((res) => setTodos((res.filter((todo) => todo.done === false))));
   }
 
-  const getCompletedTodos = () => {
+  const getCompletedTodos = (e) => {
+    const button = e.target;
+    styleFilters(button);
     getData().then((res) => setTodos((res.filter((todo) => todo.done === true))));
+  }
+
+  const styleFilters = button => {
+    const filterButtons = button.parentNode.childNodes;
+    for (let i = 0; i < filterButtons.length; i++) {
+      filterButtons[i].classList.remove('active');
+    }
+    button.classList.add('active');
   }
 
   const createTodo = async(todo) => {
@@ -54,9 +69,9 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="container mx-auto max-w-fit	p-20">
       <Input createFunction={createTodo} />
-      <button onClick={getAllTodos}>All</button><button onClick={getActiveTodos}>Open</button><button onClick={getCompletedTodos}>Completed</button>
+      <div className='flex justify-between my-3'><button className='active rounded hover:bg-purple-200 hover:border-purple-600 border border-slate-200 py-0.5 px-3' onClick={getAllTodos}>All</button><button className='rounded hover:bg-purple-200 hover:border-purple-600 border border-slate-200 active:border-purple-600 py-0.5 px-3' onClick={getActiveTodos}>Open</button><button className='rounded hover:bg-purple-200 hover:border-purple-600 border border-slate-200 active:border-purple-600 py-0.5 px-3' onClick={getCompletedTodos}>Completed</button></div>
       {todos.map((todo) => (
         <TodoItem key={todo.id} {...todo} deleteFunction={deleteTodo} />
       ))}

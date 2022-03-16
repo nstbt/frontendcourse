@@ -33,9 +33,9 @@ import {useState} from 'react';
   //do i need useEffect?
 
     return (
-        <div>
+        <div className='flex items-center my-1 delete'>
             {/* <input type="checkbox" checked={props.done} onChange={updateTodo(props.id)} /><label>{props.label} ({props.done})</label> */}
-            <input type="checkbox" onChange={() => getTodo(props.id)} checked={status} /><label>{props.label}</label><button onClick={() => props.deleteFunction(props.id)}>x</button>
+            <input className='mr-2 checked:bg-purple-600' type="checkbox" onChange={() => getTodo(props.id)} checked={status} /><label>{props.label}</label><button className='ml-auto text-purple-600' onClick={() => props.deleteFunction(props.id)}></button>
         </div>
     )
 }

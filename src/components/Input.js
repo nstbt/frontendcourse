@@ -12,11 +12,11 @@ const Input = ({createFunction}) => {
         /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
         <form onSubmit={handleSubmit(onSubmit)}>
           {/* register your input into the hook by invoking the "register" function */}
-          <input defaultValue="test" {...register("label", { required: true })} />
+          <input className="border border-slate-200 py-0.5 px-1.5 mr-3" type="text" placeholder="I need to do ..." {...register("label", { required: true })} />
 
           {errors.label && <span>This field is required</span>}
           
-          <input type="submit" value="Add" className="bg-blue-500 rounded" />
+          <input type="submit" value="Add" className="bg-purple-600 text-white rounded hover:bg-purple-400 py-0.5 px-3" />
         </form>
       );
 }
