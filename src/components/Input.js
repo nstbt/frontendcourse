@@ -3,7 +3,10 @@ import { useForm } from "react-hook-form";
 const Input = ({createFunction}) => {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => createFunction(data);
+    const onSubmit = data => {
+      const newTodo = {...data, done: false}
+      createFunction(newTodo);
+    }
 
     return (
         /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
@@ -13,7 +16,7 @@ const Input = ({createFunction}) => {
 
           {errors.label && <span>This field is required</span>}
           
-          <input type="submit" />
+          <input type="submit" value="Add" className="bg-blue-500 rounded" />
         </form>
       );
 }

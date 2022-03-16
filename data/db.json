@@ -8,7 +8,7 @@
     {
       "id": 2,
       "label": "Connect to API",
-      "done": false
+      "done": true
     },
     {
       "id": 3,
@@ -21,26 +21,9 @@
       "done": false
     },
     {
-      "example": "hello",
-      "exampleRequired": "",
-      "todoitem": "test",
+      "label": "hello world",
+      "done": false,
       "id": 5
-    },
-    {
-      "label": "hello world",
-      "id": 6
-    },
-    {
-      "label": "test todo",
-      "id": 7
-    },
-    {
-      "label": "test",
-      "id": 8
-    },
-    {
-      "label": "hello world",
-      "id": 9
     }
   ]
 }
