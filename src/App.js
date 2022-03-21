@@ -53,6 +53,16 @@ function App() {
     setTodos([...todos, data]);
   }
 
+  const setUpdate = (updatedTitle, id) => {
+    console.log(updatedTitle, id);
+    setTodos((todos.map(todo => {
+      if (todo.id === id) {
+        todo.title = updatedTitle
+      }
+      return todo
+    })))
+  }
+
   const deleteTodo = async(id) => {
     console.log("delete " + id);
 
@@ -73,7 +83,7 @@ function App() {
       <Input createFunction={createTodo} />
       <div className='flex justify-between my-3'><button className='active rounded hover:bg-purple-200 hover:border-purple-600 border border-slate-200 py-0.5 px-3' onClick={getAllTodos}>All</button><button className='rounded hover:bg-purple-200 hover:border-purple-600 border border-slate-200 active:border-purple-600 py-0.5 px-3' onClick={getActiveTodos}>Open</button><button className='rounded hover:bg-purple-200 hover:border-purple-600 border border-slate-200 active:border-purple-600 py-0.5 px-3' onClick={getCompletedTodos}>Completed</button></div>
       {todos.map((todo) => (
-        <TodoItem key={todo.id} {...todo} deleteFunction={deleteTodo} />
+        <TodoItem key={todo.id} {...todo} deleteFunction={deleteTodo} updateFunction={setUpdate} />
       ))}
       
     </div>
