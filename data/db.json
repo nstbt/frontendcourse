@@ -27,7 +27,7 @@
     },
     {
       "label": "test",
-      "done": false,
+      "done": true,
       "id": 6
     }
   ]

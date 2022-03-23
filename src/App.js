@@ -53,14 +53,9 @@ function App() {
     setTodos([...todos, data]);
   }
 
-  const setUpdate = (updatedTitle, id) => {
-    console.log(updatedTitle, id);
-    setTodos((todos.map(todo => {
-      if (todo.id === id) {
-        todo.title = updatedTitle
-      }
-      return todo
-    })))
+  const setUpdate = () => {
+      getData().then((res) => setTodos(res))
+    
   }
 
   const deleteTodo = async(id) => {

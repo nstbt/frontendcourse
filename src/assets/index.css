@@ -9,3 +9,6 @@ button.active {
 .delete:hover button:after{
     content:'x';
 }
+.delete button {
+    width:24px;
+}
